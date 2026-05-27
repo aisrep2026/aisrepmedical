@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitalign Wellness | Osteopathic & Integrative Medicine</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage: #5a7a65;
+    --sage-light: #8aab93;
+    --sage-pale: #e8f0ea;
+    --cream: #faf8f4;
+    --warm: #f2ede4;
+    --charcoal: #2c2c2a;
+    --muted: #6b6b66;
+    --gold: #b8935a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(90,122,101,0.12);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--sage);
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); font-style: italic; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--sage); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 7rem 3rem 4rem;
+    gap: 4rem;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -10%;
+    top: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sage-pale) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-text { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px; height: 1px;
+    background: var(--sage);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage);
+  }
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background: var(--sage);
+    color: white;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .hero-cta:hover { background: var(--charcoal); transform: translateY(-1px); }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+  }
+  .hero-circle {
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: var(--warm);
+    border: 1px solid rgba(90,122,101,0.2);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .hero-circle::after {
+    content: '';
+    position: absolute;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 1px dashed rgba(90,122,101,0.25);
+  }
+  .circle-inner {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--sage-light);
+    font-weight: 300;
+    opacity: 0.5;
+    letter-spacing: -0.02em;
+  }
+  .hero-badge {
+    position: absolute;
+    bottom: 60px; right: 20px;
+    background: white;
+    border: 1px solid var(--sage-pale);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    max-width: 180px;
+  }
+  .hero-badge .badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--sage);
+  }
+  .hero-badge .badge-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.4;
+    margin-top: 2px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    padding: 3rem 3rem;
+    background: var(--sage);
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+  }
+  .divider-item {
+    text-align: center;
+    color: white;
+  }
+  .divider-item .d-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .divider-item .d-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 7rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .about h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--charcoal);
+  }
+  .about-text p {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+  .credentials {
+    margin-top: 2rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+  }
+  .cred-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.88rem;
+    color: var(--charcoal);
+  }
+  .cred-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--sage);
+    flex-shrink: 0;
+  }
+
+  /* SERVICES */
+  .services {
+    background: var(--warm);
+    padding: 7rem 3rem;
+  }
+  .services-inner { max-width: 1100px; margin: 0 auto; }
+  .services h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+  .services-subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 3.5rem;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  .service-card {
+    background: white;
+    border: 1px solid rgba(90,122,101,0.12);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .service-card:hover {
+    box-shadow: 0 8px 32px rgba(90,122,101,0.1);
+    transform: translateY(-2px);
+  }
+  .service-icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--sage-pale);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+  }
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.6rem;
+  }
+  .service-card p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* APPROACH */
+  .approach {
+    padding: 7rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .approach h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+  }
+  .approach-sub {
+    color: var(--muted);
+    font-size: 0.97rem;
+    max-width: 520px;
+    margin: 0 auto 3.5rem;
+    line-height: 1.7;
+  }
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(90,122,101,0.1);
+    border: 1px solid rgba(90,122,101,0.1);
+  }
+  .pillar {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    text-align: left;
+  }
+  .pillar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--sage-light);
+    opacity: 0.5;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+  .pillar h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.6rem;
+  }
+  .pillar p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--charcoal);
+    padding: 6rem 3rem;
+    text-align: center;
+  }
+  .contact .section-label { color: var(--sage-light); }
+  .contact h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  .contact p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+  .contact-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 1.5rem 2rem;
+    min-width: 180px;
+  }
+  .contact-card .cc-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    margin-bottom: 0.4rem;
+  }
+  .contact-card .cc-value {
+    color: white;
+    font-size: 0.95rem;
+  }
+  .contact-cta {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-cta:hover {
+    background: var(--sage);
+    border-color: var(--sage);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #1e1e1c;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer .f-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.4);
+  }
+  footer .f-copy {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-text > * { animation: fadeUp 0.7s ease both; }
+  .hero-text > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-text > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-text > *:nth-child(3) { animation-delay: 0.35s; }
+  .hero-text > *:nth-child(4) { animation-delay: 0.5s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 2rem; }
+    .hero-visual { height: 300px; }
+    .hero-circle { width: 260px; height: 260px; }
+    .hero-circle::after { width: 290px; height: 290px; }
+    .about { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
+    .services { padding: 4rem 1.5rem; }
+    .approach { padding: 4rem 1.5rem; }
+    .pillars { grid-template-columns: 1fr; }
+    .contact { padding: 4rem 1.5rem; }
+    footer { padding: 1.2rem 1.5rem; }
+    .divider { gap: 2.5rem; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Vitalign<span>Wellness</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Osteopathic & Integrative Medicine</p>
+    <h1>Whole-person care,<br><em>rooted in science.</em></h1>
+    <p class="hero-desc">At Vitalign Wellness, we combine the evidence-based principles of osteopathic medicine with integrative therapies to support lasting health — not just the absence of disease.</p>
+    <a href="#contact" class="hero-cta">Request a Consultation</a>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-circle">
+      <div class="circle-inner">D.O.</div>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-num">D.O.</div>
+      <div class="badge-label">Board-eligible Osteopathic Physician</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-item">
+    <span class="d-num">Whole</span>
+    <span class="d-label">Person Care</span>
+  </div>
+  <div class="divider-item">
+    <span class="d-num">Evidence</span>
+    <span class="d-label">Based Practice</span>
+  </div>
+  <div class="divider-item">
+    <span class="d-num">Integrative</span>
+    <span class="d-label">Medicine</span>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div>
+    <p class="section-label">Our Practice</p>
+    <h2>Medicine that<br>sees the whole you</h2>
+  </div>
+  <div class="about-text">
+    <p>Vitalign Wellness is an osteopathic and integrative medicine practice dedicated to delivering personalized, comprehensive care. We work with patients to understand the full picture of their health — physical, nutritional, and lifestyle — to craft treatment plans that truly address root causes.</p>
+    <p>Our physician holds a Doctor of Osteopathic Medicine (D.O.) degree and brings a philosophy of treating the whole patient, not just symptoms. Whether you're managing a chronic condition or pursuing preventive wellness, we're here as a long-term partner in your health.</p>
+    <div class="credentials">
+      <div class="cred-item"><span class="cred-dot"></span>Doctor of Osteopathic Medicine (D.O.)</div>
+      <div class="cred-item"><span class="cred-dot"></span>Integrative & Functional Medicine</div>
+      <div class="cred-item"><span class="cred-dot"></span>Preventive Health & Wellness</div>
+      <div class="cred-item"><span class="cred-dot"></span>Lab-based Diagnostic Evaluation</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-inner">
+    <p class="section-label">What We Offer</p>
+    <h2>Our services</h2>
+    <p class="services-subtitle">A curated set of services built around your health goals — from initial evaluation to ongoing integrative care.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🫀</div>
+        <h3>Osteopathic Medicine</h3>
+        <p>Comprehensive care grounded in osteopathic principles, treating the interconnected nature of body systems.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <h3>Integrative Wellness</h3>
+        <p>Combining conventional medicine with evidence-based complementary approaches for a complete picture of health.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔬</div>
+        <h3>Diagnostic Lab Work</h3>
+        <p>In-depth lab panels and advanced biomarker analysis to uncover what standard testing often misses.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🥗</div>
+        <h3>Nutritional Guidance</h3>
+        <p>Personalized nutrition strategies informed by your labs, lifestyle, and health goals.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧘</div>
+        <h3>Lifestyle Medicine</h3>
+        <p>Structured programs addressing sleep, stress, movement, and mindset as pillars of long-term health.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Preventive Care</h3>
+        <p>Proactive screening, wellness planning, and early intervention strategies tailored to your profile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="approach" id="approach">
+  <p class="section-label">Our Philosophy</p>
+  <h2>How we practice</h2>
+  <p class="approach-sub">Three guiding principles shape every patient encounter at Vitalign Wellness.</p>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <h3>Listen deeply</h3>
+      <p>We take the time to understand your full health history, lifestyle, and goals before making any recommendations.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <h3>Treat the root</h3>
+      <p>Symptoms are signals. We look beyond them to address the underlying causes driving your health concerns.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <h3>Partner long-term</h3>
+      <p>Health is a journey. We're committed to being your trusted partner through every stage of your wellness goals.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <p class="section-label">Get in Touch</p>
+  <h2>Ready to take the next step?</h2>
+  <p>We welcome new patients. Reach out to schedule your initial consultation<br>and begin your integrative wellness journey.</p>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <div class="cc-label">Location</div>
+      <div class="cc-value">San Francisco, CA</div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-label">Availability</div>
+      <div class="cc-value">Accepting New Patients</div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-label">Specialty</div>
+      <div class="cc-value">Osteopathic & Integrative Medicine</div>
+    </div>
+  </div>
+  <a href="mailto:info@vitalignwellness.com" class="contact-cta">Email Us to Book</a>
+</section>
+
+<footer>
+  <div class="f-logo">Vitalign Wellness</div>
+  <div class="f-copy">© 2026 Vitalign Wellness. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
